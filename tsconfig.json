@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // Подсвечивает все метса, где не указан тип
+    // any также можно использовать, но нужно указывать явно
+    "noImplicitAny": true,
+    "module": "ESNext",
+    // "module": "es6",
+    // В какую версии спеки ECMAScript компилируем: для поддержки большинства браузеров
+    "target": "es5",
+    "jsx": "react-jsx",
+    // Компилятор будет обрабатыать не только .ts файлы, но и .js
+    "allowJs": true,
+    // В 99% случаев используется 'node'
+    "moduleResolution": "node",
+    // Для абсолютного импорта
+    "baseUrl": ".",
+    // Флаг esModuleInterop позволяет работать с пакетами, которые используют 
+    // common js как с обычными пакетами с помощью import (require() module.export) = common js
+    // Example: 
+    // import Moment from 'moment'
+    // console.log(Moment);
+    // без флага esModuleInterop: результат undefined
+    // с флагом: результат [object Object]
+    "esModuleInterop": true,
+    // Флаг allowSyntheticDefaultImports
+    // Если какая-либо библиотека не имеет default import,
+    // лоадеры вроде ts-loader млм bable-loader атоматически создают их
+    // вместо такого испорта
+    // import * as React from 'react';
+    // можно писать такой 
+    // import React from 'react';
+    "allowSyntheticDefaultImports": true,
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  // "include": ["src/**/*.ts"] //added myself
+}
