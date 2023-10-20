@@ -1,44 +1,41 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    // Подсвечивает все метса, где не указан тип
-    // any также можно использовать, но нужно указывать явно
+    // Подсвечивает все места где не указан тип
+    // Однако это не означает, что теперь вовсе нельзя использовать any.
+    // Это означает лишь, что в подобных ситуация разработчик должен явно писать any,
     "noImplicitAny": true,
     "module": "ESNext",
-    // "module": "es6",
-    // В какую версии спеки ECMAScript компилируем: для поддержки большинства браузеров
+    // В какую спецификацию компилируем: для поддержки большинства браузеров
     "target": "es5",
     "jsx": "react-jsx",
-    // Компилятор будет обрабатыать не только .ts файлы, но и .js
+    // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
-    // В 99% случаев используется 'node'
     "moduleResolution": "node",
     // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]
     },
-    // Флаг esModuleInterop позволяет работать с пакетами, которые используют 
-    // common js как с обычными пакетами с помощью import (require() module.export) = common js
-    // Example: 
-    // import Moment from 'moment'
+    // esModuleInterop позволяет работать с пакетами, которые используют
+    // common js как с обычными пакета с помощью import (require() module.export) = common js
+    // import Moment from 'moment';
+    // без флага esModuleInterop результат undefined
     // console.log(Moment);
-    // без флага esModuleInterop: результат undefined
-    // с флагом: результат [object Object]
+    // c флагом результат [object Object]
+    // console.log(Moment);
     "esModuleInterop": true,
-    // Флаг allowSyntheticDefaultImports
     // Если какая-либо библиотека не имеет default import,
-    // лоадеры вроде ts-loader млм bable-loader атоматически создают их
-    // вместо такого испорта
+    // лоадеры вроде ts-loader или babel-loader автоматически создают их
+    // вместо такого импорта
     // import * as React from 'react';
-    // можно писать такой 
+    // можно писать такой
     // import React from 'react';
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
-  // "include": ["src/**/*.ts"] //added myself
+  }
 }
